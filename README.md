@@ -1,6 +1,12 @@
 # Goal
 
-The goal of this project is to have a vue 3 (vite) frontend in a docker with nginx, ready to use.
+The goal of this project is to have a stack ready to use for a website.
+
+Components:
+- vue 3 (vite) for the front, served by nginx 
+- fastapi with uvicorn for the back
+- nginx act as a reverse proxy
+- everything is dockerized
 
 # Run
 

@@ -4,7 +4,7 @@ services:
       context: ./frontend
       dockerfile: Dockerfile.dev
     networks:
-      - app-network
+      - front-network
   
   nginx:
     image: nginx:alpine
@@ -16,8 +16,29 @@ services:
     depends_on:
       - frontend
     networks:
-      - app-network
+      - front-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    networks:
+      - front-network
+      - back-network
+    volumes:
+      - ./shared_models:/app/shared_models
+
+  pong_service:
+    build:
+      context: ./services/pong_service
+      dockerfile: Dockerfile
+    volumes:
+      - ./shared_models:/app/shared_models
+    networks:
+      - back-network
 
 networks:
-  app-network:
+  front-network:
+    driver: bridge
+  back-network:
     driver: bridge
