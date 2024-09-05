@@ -28,6 +28,7 @@ services:
       - front-network
       - back-network
     volumes:
+      - ./backend/app:/app
       - ./shared_models:/app/shared_models
 
   pong_service:

@@ -32,7 +32,8 @@ This project provides a scalable template for a web application using Vue.js, Fa
 ### Production
 
 1. In the `docker-compose.yml` file, change the frontend service to use `Dockerfile` (without `.dev`).
-2. Build and run the production environment:
+2. In the `backend/Dockerfile`, remove the `"--reload"` : it is useful in dev as it reload the server each time a file change, but use ressources for nothing in prod.
+3. Build and run the production environment:
 
    ```
    docker compose up -d --build

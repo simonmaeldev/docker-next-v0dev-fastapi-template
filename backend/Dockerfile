@@ -1,10 +1,10 @@
-FROM python:3.12-alpine3.19
+FROM python:3.12-alpine3.20
 
 WORKDIR /app
 
-RUN pip install fastapi uvicorn httpx
+COPY requirements.txt .
 
-COPY ./app /app
+RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 8080
 
