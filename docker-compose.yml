@@ -5,6 +5,8 @@ services:
       dockerfile: Dockerfile.dev
     networks:
       - front-network
+    volumes:
+      - ./frontend:/app
   
   nginx:
     image: nginx:alpine
