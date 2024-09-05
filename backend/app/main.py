@@ -1,10 +1,27 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from shared_models.pong_models import PongResponse
 import httpx
 from typing import Optional
 from urllib.parse import urljoin
 
 app = FastAPI()
+
+# for the CORS
+origins = [
+    "http://localhost",
+    "http://localhost:80",
+    "http://127.0.0.1",
+    "http://127.0.0.1:80",
+]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 # same name as the one defined in the docker-compose service
 services = {
