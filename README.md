@@ -70,3 +70,35 @@ Remember to update the README as you add new services or endpoints.
 
 - The template currently responds with "pong" when accessing `/api/ping`, demonstrating the basic structure for microservice communication.
 - Modify and expand upon this template to fit your specific application needs.
+
+## Testing the Application
+
+After starting the application, you can test the various endpoints:
+
+1. Ping test: `curl http://localhost/api/ping`
+2. Backend health: `curl http://localhost/api/health`
+3. System-wide health: `curl http://localhost/api/system-health`
+4. Nginx health: `curl http://localhost/nginx-health`
+
+## Troubleshooting
+
+If you encounter any issues:
+
+1. Check if all containers are running: `docker compose ps`
+2. View logs of a specific service: `docker compose logs <service_name>`
+3. Ensure all required ports are free on your host machine
+4. Verify that all services can communicate with each other within the Docker network
+
+## Contributing
+
+Contributions to improve this template are welcome. Please follow these steps:
+
+1. Fork the repository
+2. Create a new branch for your feature
+3. Commit your changes
+4. Push to the branch
+5. Create a new Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
