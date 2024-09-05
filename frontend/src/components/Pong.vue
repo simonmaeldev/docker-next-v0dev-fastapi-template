@@ -24,7 +24,7 @@ export default defineComponent({
       error.value = ''
 
       try {
-        const response = await axios.get('http://backend:8080/api/ping')
+        const response = await axios.get('/api/ping')
         result.value = JSON.stringify(response.data, null, 2)
       } catch (err) {
         error.value = 'Error: Unable to reach the server'
