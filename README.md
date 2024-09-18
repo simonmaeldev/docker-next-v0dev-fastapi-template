@@ -4,7 +4,7 @@ This project provides a scalable template for a web application using Vue.js, Fa
 
 ## Components
 
-- Frontend: Vue 3 (Vite) served by Nginx
+- Frontend: React served by Nginx
 - Backend: FastAPI with Uvicorn
 - Reverse Proxy: Nginx
 - Microservices: Example 'pong' service
