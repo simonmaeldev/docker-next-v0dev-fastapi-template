@@ -1,5 +1,5 @@
-# Stage 1: Build the Angular app
-FROM node:22-alpine AS build
+# Stage 1: Build the prod app
+FROM node:22-alpine as build-stage
 
 # Set the working directory
 WORKDIR /app
@@ -13,20 +13,20 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
-# Build the Angular app in production mode
-RUN npm run build --prod
+RUN npm run build
 
 # Stage 2: Serve the app using NGINX
-FROM nginx:alpine
+FROM nginx:stable-alpine
 
-# Copy the built Angular app from the previous stage
-COPY --from=build /app/dist/ /usr/share/nginx/html
+COPY --from=build-stage /app/out/ /usr/share/nginx/html
 
 # Copy the custom Nginx configuration
 COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 
 # Expose port 80
 EXPOSE 80
+
+ENV NODE_ENV=production
 
 # Start NGINX
 CMD ["nginx", "-g", "daemon off;"]

@@ -1,10 +1,11 @@
 # Scalable Web Application Template
 
-This project provides a scalable template for a web application using Vue.js, FastAPI, and Nginx, all containerized with Docker.
+This project provides a scalable template for a web application using Next.js, FastAPI, and Nginx, all containerized with Docker.
+It is though to use v0.dev to create components.
 
 ## Components
 
-- Frontend: React served by Nginx
+- Frontend: Next.js served by Nginx
 - Backend: FastAPI with Uvicorn
 - Reverse Proxy: Nginx
 - Microservices: Example 'pong' service
